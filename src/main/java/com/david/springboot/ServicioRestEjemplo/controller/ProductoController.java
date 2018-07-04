@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.david.springboot.ServicioRestEjemplo.model.Producto;
 import com.david.springboot.ServicioRestEjemplo.service.ProductoService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {
@@ -20,6 +23,8 @@ public class ProductoController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
+	@ApiOperation(value="Operación de búsqueda de productos", notes="Notas de la operación")
+	@ApiParam(value="Id del producto a localizar", allowableValues = "String", required = true)
 	public Producto getProducto(@PathVariable Integer id) {
 		Producto prod = productoService.findById(id);
 		
