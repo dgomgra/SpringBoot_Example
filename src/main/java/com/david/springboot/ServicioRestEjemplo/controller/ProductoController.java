@@ -24,6 +24,8 @@ public class ProductoController {
 		Producto prod = productoService.findById(id);
 		
 		return prod;
+		
+		// Comentario añadido desde GitHib
 	}
 	
 }
